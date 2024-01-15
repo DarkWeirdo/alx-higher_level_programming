@@ -1,0 +1,68 @@
+def add_integer(a, b=98):
+    """
+    Adds two numbers after casting them to integers.
+
+    >>> add_integer(10, 20)
+    30
+    >>> add_integer(10.5, 20)
+    30
+    >>> add_integer(10, 20.5)
+    30
+    >>> add_integer(10.5, 20.5)
+    31
+    >>> add_integer(-10, 20)
+    10
+    >>> add_integer(-10.5, 20)
+    9
+    >>> add_integer(10, -20)
+    -10
+    >>> add_integer(0, 0)
+    0
+    >>> add_integer(0)
+    98
+    >>> add_integer(10.0)
+    108
+    >>> add_integer(b=10.0)
+    108
+    >>> add_integer(b=10.0, a=5.5)
+    15
+    >>> add_integer(99.9, 0.1)
+    100
+    >>> add_integer("10", 20)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer or b must be an integer
+    >>> add_integer(10, "20")
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer or b must be an integer
+    >>> add_integer("10", "20")
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer or b must be an integer
+    >>> add_integer(None, 20)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer or b must be an integer
+    >>> add_integer(10, None)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer or b must be an integer
+    >>> add_integer(True, False)
+    1
+    >>> add_integer(False, True)
+    1
+    >>> add_integer([1], 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer or b must be an integer
+    >>> add_integer(1, [2])
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer or b must be an integer
+
+    :param a: The first number, must be an integer or float.
+    :param b: The second number, defaults to 98 if not provided. Must be an integer or float.
+    :return: The addition of a and b casted to integers.
+    :raises TypeError: If a or b is not an integer or float.
+    """
