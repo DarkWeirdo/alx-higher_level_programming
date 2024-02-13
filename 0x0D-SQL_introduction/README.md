@@ -11,3 +11,6 @@ Once connected, the SHOW DATABASES; command is executed, and the list of databas
 
 task 1:
 To create a database named hbtn_0c_0 in our MySQL server without using SELECT or SHOW statements, and to ensure that the script does not fail if the database already exists, we can use the CREATE DATABASE IF NOT EXISTS statement. This statement checks if the database exists and creates it only if it doesn't exist.
+
+task 2:
+ you can use the DROP DATABASE IF EXISTS statement. This statement checks if the database exists and drops it only if it exists. Since the DROP DATABASE IF EXISTS statement is idempotent, it won't cause an error if the database does not exist, and it will drop the database if it does.
