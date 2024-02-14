@@ -21,3 +21,5 @@ To list all the tables of a specific database in your MySQL server, you can use 
 task 4:
 To create a table called `first_table` with columns `id` and `name` in the current database on your MySQL server, without using `SELECT` or `SHOW` statements, and to ensure that the script does not fail if the table already exists, you can use the `CREATE TABLE IF NOT EXISTS` statement. This statement checks if the table exists and creates it only if it doesn't exist.
 
+task 7:
+After entering your password when prompted, the script will be executed, and a new row with `id =  89` and `name = 'Best School'` will be inserted into the `first_table`.
