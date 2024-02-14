@@ -10,7 +10,6 @@ SELECT
     EXTRA
 FROM
     INFORMATION_SCHEMA.COLUMNS
-WHERE  
-    TABLE_SCHEMA = 'your_database_name'
-    AND
-    TABLE_NAME = 'your_table_name';
+WHERE
+    TABLE_NAME = 'first_table';
+
