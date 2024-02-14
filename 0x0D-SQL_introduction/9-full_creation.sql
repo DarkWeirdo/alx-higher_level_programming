@@ -3,10 +3,10 @@
 -- It then inserts four records into the second_table.
 -- The database name is passed as an argument to the mysql command.
 CREATE TABLE
-    IF NOT EXISTS SECOND_TABLE (ID INT, NAME VARCHAR(256), SCORE INT);
+    IF NOT EXISTS second_table (ID INT, NAME VARCHAR(256), SCORE INT);
 
 INSERT INTO
-    SECOND_TABLE (ID, NAME, SCORE)
+    second_table (ID, NAME, SCORE)
 VALUES
     (1, "John", 10),
     (2, "Alex", 3),
