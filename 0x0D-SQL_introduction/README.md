@@ -18,5 +18,6 @@ task 2:
 task 3:
 To list all the tables of a specific database in your MySQL server, you can use the SHOW TABLES; command within the context of the desired database. Since the database name will be passed as an argument to the mysql command, you don't need to hardcode the database name in the SQL script itself. Instead, you can use the USE statement to switch to the specified database before executing SHOW TABLES;.
 
-task 3:
+task 4:
 To create a table called `first_table` with columns `id` and `name` in the current database on your MySQL server, without using `SELECT` or `SHOW` statements, and to ensure that the script does not fail if the table already exists, you can use the `CREATE TABLE IF NOT EXISTS` statement. This statement checks if the table exists and creates it only if it doesn't exist.
+
