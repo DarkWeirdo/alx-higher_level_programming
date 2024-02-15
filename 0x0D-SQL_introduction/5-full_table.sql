@@ -1,15 +1,12 @@
 -- This script prints the full description of the table first_table.
 -- Task: Print the full description of the table first_table.
 SELECT
-    TABLE_NAME,
-    COLUMN_NAME,
-    DATA_TYPE,
-    IS_NULLABLE,
-    COLUMN_DEFAULT,
-    COLUMN_TYPE,
-    EXTRA
+    table_name,
+    column_name,
+    data_type,
+    is_nullable,
+    column_default,
+    column_type,
+    extra
 FROM
-    INFORMATION_SCHEMA.COLUMNS
-WHERE
-    TABLE_NAME = 'first_table';
-
+    first_table
