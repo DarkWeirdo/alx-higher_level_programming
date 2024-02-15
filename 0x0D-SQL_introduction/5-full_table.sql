@@ -9,4 +9,6 @@ SELECT
     column_type,
     extra
 FROM
-    first_table
+    INFORMATION_SCHEMA.COLUMNS
+WHERE
+    TABLE_NAME = 'first_table';
