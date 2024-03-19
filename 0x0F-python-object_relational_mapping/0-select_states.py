@@ -5,8 +5,9 @@ Requires MySQLdb module and takes three command-line arguments: MySQL username,
 password, and database name. Results are sorted by the state's ID in ascending.
 """
 
-import MySQLdb
 import sys
+
+import MySQLdb
 
 
 def connect_to_database(user, password, db_name):
