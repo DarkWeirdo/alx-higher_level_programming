@@ -32,7 +32,7 @@ def list_states_starting_with_n(connection):
     cursor = connection.cursor()
     cursor.execute(
         "SELECT id, name FROM states "
-        "WHERE name LIKE 'N%' "
+        "WHERE BINARY name LIKE 'N%'"
         "ORDER BY id ASC"
     )
 
