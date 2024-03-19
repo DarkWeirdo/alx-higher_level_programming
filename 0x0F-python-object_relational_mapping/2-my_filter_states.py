@@ -31,7 +31,8 @@ def list_states_matching_name(connection, state_name):
     Prints the results in the specified format.
     """
     cursor = connection.cursor()
-    query = "SELECT id, name FROM states WHERE name = %s ORDER BY id ASC"
+    query = ("SELECT id, name FROM states "
+             "WHERE BINARY name = %s ORDER BY id ASC")
     cursor.execute(query, (state_name,))
     for row in cursor.fetchall():
         print(row)
