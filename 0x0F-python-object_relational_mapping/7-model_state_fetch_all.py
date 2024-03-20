@@ -31,10 +31,14 @@ def list_all_states(session):
     """
     Queries the 'states' table and lists all State objects,
     sorted by ID in ascending order.
+    Handles cases with 4 records, no records, and many records.
     """
     states = session.query(State).order_by(State.id).all()
-    for state in states:
-        print(f"{state.id}: {state.name}")
+    if not states:
+        print("No records found.")
+    else:
+        for state in states:
+            print(f"{state.id}: {state.name}")
 
 
 if __name__ == "__main__":
