@@ -1,0 +1,66 @@
+#!/usr/bin/python3
+"""
+This script connects to a MySQL database
+and lists all cities from the 'cities' table
+where the state name matches the provided argument,
+sorted by ID in ascending order.
+It is safe from MySQL injections due to the use of parameterized queries.
+It requires the MySQLdb module and takes four command-line arguments:
+MySQL username, password, database name, and the state name to search for.
+"""
+
+import MySQLdb
+import sys
+
+
+def connect_to_database(user, password, db_name):
+    """
+    Connects to a MySQL database
+    using the provided username, password, and database name.
+    Returns a connection object.
+    """
+    return MySQLdb.connect(
+        host="localhost", port=3306, user=user, passwd=password, db=db_name
+    )
+
+
+def list_cities_by_state(connection, state_name):
+    """
+    Executes a SQL query to list all cities from the 'cities' table
+    where the state name matches the provided state name,
+    sorted by ID in ascending order.
+    Prints the results in the specified format.
+    Uses parameterized queries to prevent SQL injection.
+    """
+    cursor = connection.cursor()
+    query = (
+        "SELECT cities.name FROM cities "
+        "JOIN states ON cities.state_id = states.id "
+        "WHERE states.name = %s "
+        "ORDER BY cities.id ASC"
+    )
+    cursor.execute(query, (state_name,))
+    cities = cursor.fetchall()
+    if cities:
+        print(", ".join([city[0] for city in cities]))
+    else:
+        print()
+
+
+if __name__ == "__main__":
+    if len(sys.argv) != 5:
+        print(
+            "Usage: python3 script.py "
+            "<username> <password> <database_name> <state_name>"
+        )
+        sys.exit(1)
+
+    user, password, db_name, state_name = (
+        sys.argv[1],
+        sys.argv[2],
+        sys.argv[3],
+        sys.argv[4],
+    )
+    connection = connect_to_database(user, password, db_name)
+    list_cities_by_state(connection, state_name)
+    connection.close()
