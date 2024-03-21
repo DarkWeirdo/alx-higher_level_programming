@@ -20,8 +20,8 @@ def connect_to_database(user, password, db_name):
     Returns a session object.
     """
     engine = create_engine(
-        f"mysql+mysqldb://{user}:{password}@localhost/{db_name}"
-        , pool_pre_ping=True
+        f"mysql+mysqldb://{user}:{password}@localhost/{db_name}",
+        pool_pre_ping=True
     )
     Session = sessionmaker(bind=engine)
     return Session()
