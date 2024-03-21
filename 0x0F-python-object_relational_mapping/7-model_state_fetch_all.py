@@ -10,7 +10,7 @@ and imports State and Base from the model_state module.
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from model_state import Base, State
+from model_state import State
 
 
 def connect_to_database(user, password, db_name):
@@ -20,7 +20,7 @@ def connect_to_database(user, password, db_name):
     Returns a session object.
     """
     engine = create_engine(
-        f"mysql+mysqldb://{user}:{password}@localhost/{db_name}", echo=True
+        f"mysql+mysqldb://{user}:{password}@localhost/{db_name}", pool_pre_ping=True
     )
     Session = sessionmaker(bind=engine)
     return Session()
@@ -32,12 +32,8 @@ def list_all_states(session):
     sorted by ID in ascending order.
     Handles cases with 4 records, no records, and many records.
     """
-    states = session.query(State).order_by(State.id)
-    if not states:
-        print("No records found.")
-    else:
-        for state in states:
-            print(f"{state.id}: {state.name}")
+    for state in session.query(State).order_by(State.id):
+        print("{}: {}".format(state.id, state.name))
 
 
 if __name__ == "__main__":
