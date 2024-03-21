@@ -22,7 +22,6 @@ def connect_to_database(user, password, db_name):
     engine = create_engine(
         f"mysql+mysqldb://{user}:{password}@localhost/{db_name}", echo=True
     )
-    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     return Session()
 
@@ -33,7 +32,7 @@ def list_all_states(session):
     sorted by ID in ascending order.
     Handles cases with 4 records, no records, and many records.
     """
-    states = session.query(State).order_by(State.id).all()
+    states = session.query(State).order_by(State.id)
     if not states:
         print("No records found.")
     else:
