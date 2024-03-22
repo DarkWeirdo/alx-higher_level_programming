@@ -39,8 +39,8 @@ def list_states_with_a(session):
     if not states:
         print("No records found.")
     else:
-        if "a" in state.name:
-            for state in states:
+        for state in states:
+            if "a" in state.name:
                 print(f"{state.id}: {state.name}")
 
 
