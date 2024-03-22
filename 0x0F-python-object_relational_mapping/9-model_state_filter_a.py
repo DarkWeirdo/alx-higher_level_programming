@@ -37,12 +37,15 @@ def list_states_with_a(session):
     """
     states = (
         session.query(State)
-        .filter(State.name.contains("a"))
+        .filter(State.name.contains('a'))
         .order_by(State.id)
+        .all()
     )
-
-    for state in states:
-        print(f"{state.id}: {state.name}")
+    if not states:
+        print("No records found.")
+    else:
+        for state in states:
+            print(f"{state.id}: {state.name}")
 
 
 if __name__ == "__main__":
