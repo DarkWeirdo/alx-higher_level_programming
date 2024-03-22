@@ -21,7 +21,8 @@ def connect_to_database(user, password, db_name):
     Returns a session object.
     """
     engine = create_engine(
-        f"mysql+mysqldb://{user}:{password}@localhost/{db_name}", pool_pre_ping=True
+        f"mysql+mysqldb://{user}:{password}@localhost/{db_name}",
+        pool_pre_ping=True
     )
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
@@ -38,7 +39,7 @@ def list_states_with_a(session):
     if not states:
         print("No records found.")
     else:
-        if "a" in State.name:
+        if "a" in state.name:
             for state in states:
                 print(f"{state.id}: {state.name}")
 
