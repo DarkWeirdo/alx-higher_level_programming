@@ -35,9 +35,10 @@ def print_cities_by_state(session):
     sorted by 'cities.id' in ascending order,
     in the format: <state name>: (<city id>) <city name>.
     """
-    cities = session.query(City).join(State).order_by(City.id).all()
-    for city in cities:
-        print(f"{city.state.name}: ({city.id}) {city.name}")
+    for city, state in session.query(City, State) \
+                              .filter(City.state_id == State.id) \
+                              .order_by(City.id):
+        print("{}: ({}) {}".format(state.name, city.id, city.name))
 
 
 if __name__ == "__main__":
