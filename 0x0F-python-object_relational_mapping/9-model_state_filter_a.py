@@ -39,7 +39,6 @@ def list_states_with_a(session):
         session.query(State)
         .filter(State.name.contains("a"))
         .order_by(State.id)
-        .all()
     )
 
     for state in states:
