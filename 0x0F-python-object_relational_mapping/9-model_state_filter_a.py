@@ -21,8 +21,7 @@ def connect_to_database(user, password, db_name):
     Returns a session object.
     """
     engine = create_engine(
-        f"mysql+mysqldb://{user}:{password}@localhost/{db_name}",
-        pool_pre_ping=True
+        f"mysql+mysqldb://{user}:{password}@localhost/{db_name}", pool_pre_ping=True
     )
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
@@ -35,17 +34,13 @@ def list_states_with_a(session):
     that contain the letter 'a' in their name,
     sorted by 'states.id' in ascending order.
     """
-    states = (
-        session.query(State)
-        .filter(State.name.contains('a'))
-        .order_by(State.id)
-        .all()
-    )
+    states = session.query(State).order_by(State.id)
     if not states:
         print("No records found.")
     else:
-        for state in states:
-            print(f"{state.id}: {state.name}")
+        if "a" in State.name:
+            for state in states:
+                print(f"{state.id}: {state.name}")
 
 
 if __name__ == "__main__":
