@@ -1,0 +1,25 @@
+# 0x14-javascript-web_scraping
+
+## Task 0
+
+- Line 1: The shebang line specifies that this script should be run with Node.js.
+- Line 3: Import the `fs` module, which is used for file system operations.
+- Line 4: Retrieve the file path from the command line arguments.
+- Line 6-12: Read the file asynchronously with `fs.readFile`. The encoding `utf-8` ensures the file's content is treated as text. If an error occurs (e.g., file not found), it is caught and printed; otherwise, the content of the file is printed.
+
+## Task 1
+
+- Line 1: The shebang line #!/usr/bin/node makes the script executable with Node.js.
+- Line 3: The fs module is imported, which provides filesystem-related functionality.
+- Line 5-6: process.argv is used to retrieve the command-line arguments. process.argv[2] is the file path, and process.argv[3] is the string to write.
+- Line 8-12: fs.writeFile is used to write the string to the file specified by filePath. The content is written in utf-8 encoding. If an error occurs during the write operation, it is caught in the callback and printed to the console.
+
+## Task 2
+
+## Task 3
+
+## Task 4
+
+## Task 5
+
+## Task 6
