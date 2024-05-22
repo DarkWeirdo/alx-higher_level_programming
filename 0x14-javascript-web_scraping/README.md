@@ -16,6 +16,13 @@
 
 ## Task 2
 
+- Shebang Line: The script starts with `#!/usr/bin/node` to specify that it should be executed using Node.js.
+- Module Import: Uses `const` to import the `request` module, which is necessary for making HTTP requests.
+- Command Line Arguments: `process.argv[2]` is used to get the URL from the command line argument.
+- Request Handling: The `request` function is called with the URL. It takes a callback function that handles the response. The callback checks for - errors and prints the status code.
+- Error Handling: If an error occurs during the request (e.g., network issues, invalid URL), it logs the error.
+- Output: Prints the status code in the format `code: <status code>`.
+
 ## Task 3
 
 ## Task 4
