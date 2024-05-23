@@ -29,4 +29,20 @@
 
 ## Task 5
 
+In this JavaScript script, we utilize the request module to send an HTTP request to a specified URL and then save the response body to a file using the fs module.
+
+Here's a breakdown of the script:
+
+1. We require the necessary modules fs and request.
+2. The script retrieves the URL and file path from the command line arguments.
+3. It sends a request to the specified URL using request.
+4. Upon receiving a response, it checks for errors and verifies if the status code is 200 (OK).
+5. If there are no errors and the status code is 200, it writes the body of the response to the specified file path using fs.writeFileSync.
+6. The file is encoded in UTF-8.
+7. If an error occurs during the request or the status code is not 200, an error message is logged.
+
+- This script essentially fetches the contents of a webpage from a given URL and saves it to a file specified by the user in UTF-8 encoding.
+
 ## Task 6
+
+This script will fetch the data from the provided API URL, filter out the completed tasks, count the number of completed tasks per user id, and then print the result as shown in the example output you provided.
