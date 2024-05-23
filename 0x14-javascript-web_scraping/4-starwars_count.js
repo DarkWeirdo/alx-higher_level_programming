@@ -18,6 +18,6 @@ request(apiUrl, function (error, response, body) {
 
     console.log(count);
   } else {
-    console.log('Error fetching data from the API');
+    console.error('error:', error);
   }
 });
